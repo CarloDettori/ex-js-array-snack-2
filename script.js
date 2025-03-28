@@ -58,12 +58,12 @@ function somma(a, b) {
 let longBooks = books.filter((el) => {
     return el.pages > 300
 })
-console.log(longBooks)
+//console.log(longBooks)
 
 let longBooksTitles = longBooks.map((el) => {
     return el.title
 })
-console.log(longBooksTitles)
+//console.log(longBooksTitles)
 
 
 
@@ -72,11 +72,46 @@ console.log(longBooksTitles)
 let availableBooks = books.filter((el) => {
     return el.available === true
 })
-console.log(availableBooks)
+//console.log(availableBooks)
 
-let discountedBooks = availableBooks.map((el) => {
+let discountedBooks = availableBooks.map((el, index) => {
     let fullDecimals = parseInt(el.price) * 0.8
+
     return fullDecimals.toFixed(2)
 })
 
-console.log(discountedBooks)
+//console.log(discountedBooks)
+
+
+
+//SNACK 3 ______________________________________________________________________________________
+
+let authors = books.map((el) => {
+    return el.author
+})
+console.log(authors)
+
+let areAuthorsAdults = authors.every((el) => {
+    return el.age >= 18
+})
+console.log(areAuthorsAdults)
+
+let sortedautors = authors.sort((a, b) => {
+    return a.age - b.age
+})
+console.log(sortedautors)
+
+let ageSumm = sortedautors.reduce((acc, curr) => acc + curr.age, 0)
+let averageAge = ageSumm / sortedautors.length
+console.log(averageAge)
+
+
+//SNACK 4 ______________________________________________________________________________________
+
+let ages = books.map((el) => {
+    return el.author.age
+})
+console.log(ages)
+
+let agesSumm = ages.reduce((acc, curr) => acc + curr, 0)
+console.log(agesSumm)

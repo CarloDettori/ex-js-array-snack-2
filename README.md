@@ -84,7 +84,7 @@ Snack 3 - Ordinare gli Autori
 
 
 
-Snack 3 - Calcola l’età media
+Snack 4 - Calcola l’età media
 
     Creare un array (ages) che contiene le età degli autori dei libri.
 
