@@ -55,33 +55,28 @@ function somma(a, b) {
     return a + b
 }
 
-let longBooks = books.filter((el) => {
-    return el.pages > 300
-})
+let longBooks = books.filter(el => el.pages > 300)
 //console.log(longBooks)
 
-let longBooksTitles = longBooks.map((el) => {
-    return el.title
-})
-//console.log(longBooksTitles)
+let longBooksTitles = longBooks.map(el => el.title)
+console.log(longBooksTitles)
+
+longBooksTitles.forEach(el => console.log(el))
 
 
 
 //SNACK 2 ______________________________________________________________________________________
 
-let availableBooks = books.filter((el) => {
-    return el.available === true
-})
-//console.log(availableBooks)
+let availableBooks = books.filter(el => el.available === true)
+console.log(availableBooks)
 
-let discountedBooks = availableBooks.map((el, index) => {
+let discountedBooks = availableBooks.forEach((el) => {
     let fullDecimals = parseInt(el.price) * 0.8
-
-    return fullDecimals.toFixed(2)
+    return fullDecimals.toFixed(2) + " €"
 })
+console.log(discountedBooks)
 
-//console.log(discountedBooks)
-
+let fullPricedBook
 
 
 //SNACK 3 ______________________________________________________________________________________
@@ -161,6 +156,3 @@ console.log(booksByPrice)
 
 //SNACK 7 ______________________________________________________________________________________
 
-const tagCounts = books.reduce((acc, curr) => {
-    return [...acc.tags.map((el) => el)]
-}, {})
