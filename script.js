@@ -113,5 +113,54 @@ let ages = books.map((el) => {
 })
 console.log(ages)
 
-let agesSumm = ages.reduce((acc, curr) => acc + curr, 0)
-console.log(agesSumm)
+let agesSumm2 = ages.reduce((acc, curr) => acc + curr, 0)
+console.log(agesSumm2)
+let averageAge2 = ageSumm / sortedautors.length
+console.log(averageAge2)
+
+
+
+//SNACK 5 ______________________________________________________________________________________
+
+const booksID = [2, 13, 7, 21, 19]
+async function fetchData(url) {
+    const data = await fetch(url)
+    const useData = data.json()
+    return useData
+}
+
+function getList(id) {
+    return (
+        fetchData(`https://boolean-spec-frontend.vercel.app/freetestapi/books/${id}`)
+            .then(message => console.log(message))
+            .catch(error => console.error(error))
+            .finally(console.log("end"))
+    )
+}
+
+function getBooks(ids) {
+    let booksdata = ids.map((el) => getList(el))
+    return booksdata
+}
+
+
+
+
+//SNACK 6 ______________________________________________________________________________________
+
+
+const areThereAvailableBooks = books.some((el) => el.available == true)
+console.log(areThereAvailableBooks)
+
+const booksByPrice = books.sort((a, b) => {
+    return parseInt(a.price) - parseInt(b.price)
+})
+console.log(booksByPrice)
+
+
+
+//SNACK 7 ______________________________________________________________________________________
+
+const tagCounts = books.reduce((acc, curr) => {
+    return [...acc.tags.map((el) => el)]
+}, {})
