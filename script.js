@@ -63,7 +63,7 @@ let longBooks = books.filter(el => el.pages > 300)
 let longBooksTitles = longBooks.map(el => el.title)
 //console.log(longBooksTitles)
 
-longBooksTitles.forEach(el => console.log(el))
+//longBooksTitles.forEach(el => console.log(el))
 
 
 
@@ -72,13 +72,17 @@ longBooksTitles.forEach(el => console.log(el))
 let availableBooks = books.filter(el => el.available === true)
 //console.log(availableBooks)
 
-let discountedBooks = availableBooks.forEach((el) => {
+availableBooks.forEach((el) => {
     let fullDecimals = parseInt(el.price) * 0.8
+    el.price = fullDecimals
     return fullDecimals.toFixed(2) + " €"
 })
-//console.log(discountedBooks)
+console.log(availableBooks)
 
-let fullPricedBook
+let fullPricedBook = availableBooks.find((el) => {
+    return parseInt(el.price) % 1 == 0
+})
+console.log(fullPricedBook)
 
 
 //SNACK 3 ______________________________________________________________________________________
@@ -101,7 +105,7 @@ let sortedautors = authors.sort((a, b) => {
     }
 
 })
-console.log(authors)
+//console.log(authors)
 
 
 
@@ -115,7 +119,7 @@ let ages = books.map((el) => {
 let agesSumm2 = ages.reduce((acc, curr) => acc + curr, 0)
 //console.log(agesSumm2)
 
-let averageAge2 = ageSumm / sortedautors.length
+let averageAge2 = agesSumm2 / sortedautors.length
 //console.log(averageAge2)
 
 
@@ -145,10 +149,7 @@ async function getBooks(ids) {
 
 
 
-
-
 //SNACK 6 ______________________________________________________________________________________
-
 
 const areThereAvailableBooks = books.some((el) => el.available == true)
 //console.log(areThereAvailableBooks)
@@ -180,5 +181,4 @@ function tags(array) {
     }, {})
 
 }
-
-console.log(tags(books))
+//console.log(tags(books))
