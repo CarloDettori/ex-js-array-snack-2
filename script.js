@@ -94,13 +94,15 @@ let areAuthorsAdults = authors.every((el) => {
 //console.log(areAuthorsAdults)
 
 let sortedautors = authors.sort((a, b) => {
-    return a.age - b.age
-})
-//console.log(sortedautors)
+    if (areAuthorsAdults === true) {
+        return a.age - b.age
+    } else {
+        return b.age - a.age
+    }
 
-let ageSumm = sortedautors.reduce((acc, curr) => acc + curr.age, 0)
-let averageAge = ageSumm / sortedautors.length
-//console.log(averageAge)
+})
+console.log(authors)
+
 
 
 //SNACK 4 ______________________________________________________________________________________
